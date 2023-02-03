@@ -16,4 +16,10 @@ public class WebConfig {
         templateResolver.setTemplateMode(TemplateMode.HTML);
         return templateResolver;
     }
+
+    @Bean
+    public ContactFormRepository contactFormRepository() {
+        return new ContactFormRepository();
+    }
+
 }

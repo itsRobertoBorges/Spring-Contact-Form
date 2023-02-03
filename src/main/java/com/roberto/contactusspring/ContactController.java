@@ -4,10 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class ContactController {
+    @Autowired
+    private ContactFormRepository contactFormRepository;
+    public ContactController(ContactFormRepository contactFormRepository){
+        this.contactFormRepository = contactFormRepository;
+    }
 
     // This shows the contact form
     @GetMapping("/contact")
@@ -21,6 +26,7 @@ public class ContactController {
         if (bindingResult.hasErrors()) {
             return "error";
         }
+        contactFormRepository.save(contactForm);
         return "success";
     }
 }
