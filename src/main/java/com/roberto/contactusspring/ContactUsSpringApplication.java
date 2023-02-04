@@ -8,6 +8,6 @@ public class ContactUsSpringApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ContactUsSpringApplication.class, args);
+        System.out.print("http://localhost:8080/contact");
     }
-
 }

@@ -8,7 +8,8 @@ import org.springframework.data.annotation.Id;
 @Entity
 @Table
 public class ContactForm {
-        @Id
+    @jakarta.persistence.Id
+    @Id
         @SequenceGenerator(
                 name = "contact_sequence",
                 sequenceName = "contact_sequence",
@@ -18,6 +19,7 @@ public class ContactForm {
                 strategy = GenerationType.SEQUENCE,
                 generator = "contact_sequence"
         )
+    private long id;
     //This annotation ensures tht the input is not empty
     @NotEmpty
     private String name;
@@ -27,8 +29,7 @@ public class ContactForm {
     private String email;
     @NotEmpty
     private String message;
-    @jakarta.persistence.Id
-    private Long id;
+
 
     public String getName() {
         return name;

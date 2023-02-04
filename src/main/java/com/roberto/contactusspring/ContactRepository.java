@@ -1,4 +1,8 @@
 package com.roberto.contactusspring;
 
-public interface ContactRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ContactRepository extends JpaRepository<ContactForm, Long> {
+
 }
+

@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class ContactController {
-
+    @Autowired
+    private ContactRepository contactFormRepository;
 
     // This shows the contact form
     @GetMapping("/contact")
@@ -23,7 +24,7 @@ public class ContactController {
         if (bindingResult.hasErrors()) {
             return "error";
         }
-        //contactFormRepository.save(contactForm);
+        contactFormRepository.save(contactForm);
         return "success";
     }
 }
