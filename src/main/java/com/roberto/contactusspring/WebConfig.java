@@ -17,9 +17,5 @@ public class WebConfig {
         return templateResolver;
     }
 
-    @Bean
-    public ContactFormRepository contactFormRepository() {
-        return new ContactFormRepository();
-    }
 
 }

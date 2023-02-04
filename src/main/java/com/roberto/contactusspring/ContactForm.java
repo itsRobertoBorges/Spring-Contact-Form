@@ -1,9 +1,23 @@
 package com.roberto.contactusspring;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
 
+@Entity
+@Table
 public class ContactForm {
+        @Id
+        @SequenceGenerator(
+                name = "contact_sequence",
+                sequenceName = "contact_sequence",
+                allocationSize = 1
+        )
+        @GeneratedValue(
+                strategy = GenerationType.SEQUENCE,
+                generator = "contact_sequence"
+        )
     //This annotation ensures tht the input is not empty
     @NotEmpty
     private String name;
@@ -13,6 +27,8 @@ public class ContactForm {
     private String email;
     @NotEmpty
     private String message;
+    @jakarta.persistence.Id
+    private Long id;
 
     public String getName() {
         return name;
@@ -36,5 +52,13 @@ public class ContactForm {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
